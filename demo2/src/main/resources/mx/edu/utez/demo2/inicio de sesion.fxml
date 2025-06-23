@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mx.edu.utez.demo2.InicioDeSesion">
+   <children>
+      <SplitPane dividerPositions="0.15254237288135594" layoutX="111.0" layoutY="46.0" orientation="VERTICAL" prefHeight="297.0" prefWidth="367.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <TextFlow layoutX="14.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="200.0" prefWidth="116.0" />
+                        <TextFlow prefHeight="39.0" prefWidth="200.0" />
+                        <TextFlow prefHeight="456.0" prefWidth="294.0" />
+                     </children></TextFlow>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Sphere layoutX="21.0" layoutY="108.0" radius="50" />
+      <TextField />
+      <TextArea prefHeight="200.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="mx.edu.utez.calculadora2.HelloController"
+      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+
+    <TextField fx:id="txtNum1" promptText="Número 1"/>
+    <TextField fx:id="txtNum2" promptText="Número 2"/>
+
+    <Button fx:id="btnSumar" text="Sumar" />
+    <Button fx:id="btnRestar" text="Restar" />
+    <Button fx:id="btnMultiplicar" text="Multiplicar" />
+    <Button fx:id="btnDividir" text="Dividir" />
+
+    <Label fx:id="lblResultado" text="Resultado" />
+
+</VBox>
