@@ -1,63 +1,82 @@
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
-public class Main extends Application {
-    @Override
-    public void start(Stage stage) {
-        TextField txtNum1 = new TextField();
-        txtNum1.setPromptText("Número 1");
+import java.util.Scanner;
 
-        TextField txtNum2 = new TextField();
-        txtNum2.setPromptText("Número 2");
+public class Main {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
 
-        Label lblResultado = new Label("Resultado");
+            double num1 = 0, num2 = 0;
+            boolean operacionValida = false;
 
-        Button btnSumar = new Button("Sumar");
-        Button btnRestar = new Button("Restar");
-        Button btnMultiplicar = new Button("Multiplicar");
-        Button btnDividir = new Button("Dividir");
-
-        btnSumar.setOnAction(e -> {
-            double n1 = Double.parseDouble(txtNum1.getText());
-            double n2 = Double.parseDouble(txtNum2.getText());
-            lblResultado.setText("El resultado es: " + (n1 + n2));
-        });
-
-        btnRestar.setOnAction(e -> {
-            double n1 = Double.parseDouble(txtNum1.getText());
-            double n2 = Double.parseDouble(txtNum2.getText());
-            lblResultado.setText("El resultado es: " + (n1 - n2));
-        });
-
-        btnMultiplicar.setOnAction(e -> {
-            double n1 = Double.parseDouble(txtNum1.getText());
-            double n2 = Double.parseDouble(txtNum2.getText());
-            lblResultado.setText("El resultado es: " + (n1 * n2));
-        });
-
-        btnDividir.setOnAction(e -> {
-            double n1 = Double.parseDouble(txtNum1.getText());
-            double n2 = Double.parseDouble(txtNum2.getText());
-            if (n2 != 0) {
-                lblResultado.setText("El resultado es: " + (n1 / n2));
-            } else {
-                lblResultado.setText("Error: División por cero");
+            // Leer el primer numero
+            while (!operacionValida) {
+                try {
+                    System.out.print("Ingresa el primer numero: ");
+                    num1 = Double.parseDouble(scanner.nextLine());
+                    operacionValida = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Por favor ingresa un numero valido.");
+                }
             }
-        });
 
-        VBox panel = new VBox(10, txtNum1, txtNum2, btnSumar, btnRestar, btnMultiplicar, btnDividir, lblResultado);
-        panel.setStyle("-fx-padding: 20; -fx-alignment: center;");
+            operacionValida = false;
 
-        Scene escena = new Scene(panel, 300, 350);
-        stage.setTitle("Calculadora");
-        stage.setScene(escena);
-        stage.show();
+            // Leer el segundo numero
+            while (!operacionValida) {
+                try {
+                    System.out.print("Ingresa el segundo numero: ");
+                    num2 = Double.parseDouble(scanner.nextLine());
+                    operacionValida = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Por favor ingresa un numero valido.");
+                }
+            }
+
+            // Mostrar menu de operaciones
+            System.out.println("Selecciona una operacion:");
+            System.out.println("1. Sumar");
+            System.out.println("2. Restar");
+            System.out.println("3. Multiplicar");
+            System.out.println("4. Dividir");
+
+            int opcion = 0;
+            operacionValida = false;
+
+            // Leer la opcion del usuario
+            while (!operacionValida) {
+                try {
+                    System.out.print("Opcion: ");
+                    opcion = Integer.parseInt(scanner.nextLine());
+                    operacionValida = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Error: Ingresa un numero entre 1 y 4.");
+                }
+            }
+
+            // Realizar la operacion
+            switch (opcion) {
+                case 1:
+                    System.out.println("Resultado: " + (num1 + num2));
+                    break;
+                case 2:
+                    System.out.println("Resultado: " + (num1 - num2));
+                    break;
+                case 3:
+                    System.out.println("Resultado: " + (num1 * num2));
+                    break;
+                case 4:
+                    if (num2 != 0) {
+                        System.out.println("Resultado: " + (num1 / num2));
+                    } else {
+                        System.out.println("Error: No se puede dividir entre cero.");
+                    }
+                    break;
+                default:
+                    System.out.println("Opcion no valida.");
+            }
+
+            scanner.close();
+        }
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-}
